@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="21701" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21701"/>
+        <capability name="Search Toolbar Item" minToolsVersion="12.0" minSystemVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -591,7 +592,44 @@ CA
             <view key="contentView" id="372">
                 <rect key="frame" x="0.0" y="0.0" width="826" height="439"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <connections>
+                    <outlet property="menu" destination="29" id="LV4-XI-s20"/>
+                </connections>
             </view>
+            <toolbar key="toolbar" implicitIdentifier="F15AA2D7-17D7-4966-BB03-957E267C7F5F" explicitIdentifier="CiO Tool Bar" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="QjG-o8-HDI" customClass="BPToolbar">
+                <allowedToolbarItems>
+                    <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="43Q-o6-4UW"/>
+                    <toolbarItem implicitItemIdentifier="22EFF212-704E-447F-BDF3-C4740ED3AE5A" explicitItemIdentifier="CiO Meta Action Bar Item" label="Main Action" paletteLabel="Meta Action" tag="-1" image="display.and.arrow.down" catalog="system" bordered="YES" id="ueG-pP-W3h">
+                        <size key="minSize" width="31" height="25"/>
+                        <size key="maxSize" width="31" height="25"/>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="BC011186-0421-4A53-81A7-0A131274802F" explicitItemIdentifier="CiO Passive Action Bar Item" label="Alternate Action" paletteLabel="Passive Action" tag="-1" image="list.bullet.rectangle.portrait.fill" catalog="system" bordered="YES" id="IJH-LP-i10">
+                        <size key="minSize" width="26" height="25"/>
+                        <size key="maxSize" width="26" height="25"/>
+                    </toolbarItem>
+                    <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="xjB-fZ-i5T"/>
+                    <searchToolbarItem implicitItemIdentifier="81F9AC38-C165-478B-B008-FCD938D67F1E" label="Search" paletteLabel="Search" visibilityPriority="1001" id="UMq-0l-y3L">
+                        <nil key="toolTip"/>
+                        <searchField key="view" verticalHuggingPriority="750" textCompletion="NO" id="GUy-3U-0ID">
+                            <rect key="frame" x="0.0" y="0.0" width="100" height="21"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" sendsSearchStringImmediately="YES" id="xf1-is-ncU">
+                                <font key="font" usesAppearanceFont="YES"/>
+                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                            </searchFieldCell>
+                        </searchField>
+                    </searchToolbarItem>
+                </allowedToolbarItems>
+                <defaultToolbarItems>
+                    <toolbarItem reference="43Q-o6-4UW"/>
+                    <toolbarItem reference="43Q-o6-4UW"/>
+                    <toolbarItem reference="ueG-pP-W3h"/>
+                    <toolbarItem reference="IJH-LP-i10"/>
+                    <toolbarItem reference="xjB-fZ-i5T"/>
+                    <searchToolbarItem reference="UMq-0l-y3L"/>
+                </defaultToolbarItems>
+            </toolbar>
             <point key="canvasLocation" x="461" y="273.5"/>
         </window>
         <menu title="Formula" id="dg5-kq-v1Y">
@@ -733,6 +771,7 @@ CA
             <connections>
                 <outlet property="delegate" destination="547" id="TTZ-f3-aNF"/>
             </connections>
+            <point key="canvasLocation" x="703.5" y="-101.5"/>
         </menu>
         <customObject id="494" customClass="BPAppDelegate">
             <connections>
@@ -946,14 +985,14 @@ CA
             <point key="canvasLocation" x="118" y="-308.5"/>
         </customView>
         <scrollView borderType="none" autohidesScrollers="YES" horizontalLineScroll="28" horizontalPageScroll="10" verticalLineScroll="28" verticalPageScroll="10" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" verticalScrollElasticity="none" id="bme-rl-6Ta">
-            <rect key="frame" x="0.0" y="0.0" width="210" height="275"/>
+            <rect key="frame" x="0.0" y="0.0" width="210" height="274"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <clipView key="contentView" drawsBackground="NO" id="xPi-so-Sop">
-                <rect key="frame" x="0.0" y="0.0" width="210" height="275"/>
-                <autoresizingMask key="autoresizingMask"/>
+                <rect key="frame" x="0.0" y="0.0" width="210" height="274"/>
+                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                 <subviews>
                     <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" selectionHighlightStyle="sourceList" columnReordering="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="28" rowSizeStyle="systemDefault" viewBased="YES" indentationPerLevel="13" outlineTableColumn="Dme-LE-cyv" id="9f4-xo-e1c" customClass="PXSourceList">
-                        <rect key="frame" x="0.0" y="0.0" width="210" height="275"/>
+                        <rect key="frame" x="0.0" y="0.0" width="210" height="274"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" name="_sourceListBackgroundColor" catalog="System" colorSpace="catalog"/>
                         <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
@@ -971,7 +1010,7 @@ CA
                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                 <prototypeCellViews>
                                     <tableCellView identifier="HeaderCell" id="266-1g-zfm" customClass="PXSourceListTableCellView">
-                                        <rect key="frame" x="10" y="0.0" width="190" height="17"/>
+                                        <rect key="frame" x="10" y="0.0" width="729" height="17"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zqu-hn-vHh">
@@ -989,7 +1028,7 @@ CA
                                         </connections>
                                     </tableCellView>
                                     <tableCellView identifier="MainCell" id="Emw-wX-GZR" customClass="PXSourceListTableCellView">
-                                        <rect key="frame" x="10" y="17" width="190" height="17"/>
+                                        <rect key="frame" x="10" y="17" width="729" height="17"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <stackView distribution="fill" orientation="horizontal" alignment="centerY" spacing="6" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" translatesAutoresizingMaskIntoConstraints="NO" id="ZYw-KT-mn6">
@@ -1058,10 +1097,12 @@ CA
                 <rect key="frame" x="224" y="17" width="15" height="102"/>
                 <autoresizingMask key="autoresizingMask"/>
             </scroller>
-            <point key="canvasLocation" x="-691" y="475"/>
+            <point key="canvasLocation" x="-350" y="443"/>
         </scrollView>
     </objects>
     <resources>
         <image name="NSActionTemplate" width="20" height="20"/>
+        <image name="display.and.arrow.down" catalog="system" width="19" height="17"/>
+        <image name="list.bullet.rectangle.portrait.fill" catalog="system" width="14" height="16"/>
     </resources>
 </document>
